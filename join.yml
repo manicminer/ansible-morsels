@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    listy:
+      - bob
+      - jon
+      - fob
+      - kon
+    stringy:
+      - bob,jon,fob,kon
+  tasks:
+    - debug:
+        msg: "{{ listy | join(',') }}"
+    - debug:
+        msg: "{{ stringy | join(',') }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

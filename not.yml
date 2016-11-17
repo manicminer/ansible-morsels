@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    dicty:
+      flag: yes
+  tasks:
+    - debug:
+        msg: "{{ False if dicty.flag is defined and dicty.flag else True }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

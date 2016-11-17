@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    list1:
+      - root
+      - admin
+    list2:
+      - root
+      - blah
+
+  tasks:
+
+    - debug:
+        msg: "{{ list1 | union(list2) }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

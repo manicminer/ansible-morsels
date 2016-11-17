@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    dict_key: blah
+
+  tasks:
+    - debug:
+        msg: "{{ {dict_key: 'blink'} }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

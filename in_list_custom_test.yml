@@ -1,0 +1,46 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    users:
+      - name: tom
+        groups:
+          - people
+          - bofh
+        password: 12345
+        keys:
+          - mykey1
+          - mykey2
+      - name: bob
+        password: 67890
+        keys:
+          - bobkey0
+          - bobkey1
+        groups:
+          - biff
+          - boff
+      - name: jon
+        password: abcdef
+        keys:
+          - jonkey
+          - dnokey
+        groups:
+          - jiff
+          - jaff
+    userlist:
+      - tom
+      - jon
+
+  tasks:
+    - debug:
+        msg: "{{ users | selectattr('name', 'in_list', userlist) | list }}"
+
+    - debug:
+        msg: "{{ item.0.name }} has key {{ item.1 }}"
+      with_subelements:
+        - "{{ users | selectattr('name', 'in_list', userlist) | list }}"
+        - keys
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

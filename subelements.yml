@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    users:
+      - name: tom
+        groups:
+          - people
+          - bofh
+        password: 12345
+        keys:
+          - mykey1
+          - mykey2
+      - name: bob
+        password: 67890
+        keys:
+          - bobkey0
+          - bobkey1
+        groups:
+          - biff
+          - boff
+
+  tasks:
+    - debug:
+        var: item
+      with_subelements:
+        - users
+        - keys

@@ -37,6 +37,9 @@
     - debug:
         msg: "{{ volumes | selectattr('mount_point', 'equalto', '/srv/static_map_images') | list }}"
 
+    - debug:
+        msg: "{{ volumes | selectattr('mount_point', 'defined') | list }}"
 
 
-# vim: set ts=2 sts=2 sw=2 et:
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

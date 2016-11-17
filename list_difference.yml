@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    list1:
+      - root
+      - admin
+    list2:
+      - root
+
+  tasks:
+
+    - debug:
+        msg: "{{ list1 | difference(list2) }}"
+
+    - debug:
+        msg: "{{ (list1 | difference(list2))[0] }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

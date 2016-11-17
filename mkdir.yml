@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - file:
+        path: /tmp/blah/blink/blurh/bloo/blob
+        state: directory
+

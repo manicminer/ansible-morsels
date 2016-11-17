@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    list1:
+      - a
+      - b
+      - c
+    list2:
+      - ['ard', 'arf', 'aggle']
+      - ['bird', 'berd', 'beard']
+      - ['cab', 'crab', 'crip']
+
+  tasks:
+    - debug:
+        var: item
+      with_together:
+        - "{{ list1 }}"
+        - "{{ list2 }}"
