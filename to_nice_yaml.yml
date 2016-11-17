@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars:
+    myvar:
+      key1: simplestring
+      key2: "line 1\nline 2\nline with \"quotes\"\nline 4\nline5"
+      key3: anotherstring
+
+  tasks:
+    - copy:
+        dest: /tmp/yaml-test.yml
+        content: "{{ myvar | to_nice_yaml }}"
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

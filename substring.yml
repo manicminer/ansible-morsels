@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    mystring: "bib bob bab"
+  tasks:
+    - debug: msg="found it"
+      when: "'bob' in mystring"

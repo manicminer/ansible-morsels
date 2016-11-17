@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  
+  vars:
+    mydict:
+      foo: 44
+      bar: 43
+      universe: 42
+
+  tasks:
+
+    - debug:
+        msg: "{{ mydict.items() }}"
+
+    - debug:
+        msg: "{{ mydict.keys() }}"
+
+    - debug:
+        msg: "{{ mydict.values() }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

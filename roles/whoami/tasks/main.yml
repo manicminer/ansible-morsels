@@ -1,0 +1,8 @@
+---
+- name: whoami without sudo
+  command: whoami
+
+- name: whoami with sudo
+  command: whoami
+  sudo: yes
+# vim: set ts=2 sts=2 sw=2 expandtab:

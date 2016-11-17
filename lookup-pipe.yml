@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - debug:
+        msg: "{{ lookup('pipe','date') }}"
+
+    - debug:
+        msg: "{{ lookup('pipe','ssh sysadmin1.atpla.net date --iso-8601=seconds') }}"
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

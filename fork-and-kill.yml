@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - shell: "sleep 120 &; echo $!"
+      register: sleep_result
+
+    - debug:
+        var: sleep_result
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

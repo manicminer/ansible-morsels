@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - include: MacOSX.yml
+      when: ansible_distribution == 'MacOSX'

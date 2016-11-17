@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+
+    - debug:
+        msg: "{{ '9.4' | version_compare('9.3+154ubuntu1', '>') }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 expandtab:

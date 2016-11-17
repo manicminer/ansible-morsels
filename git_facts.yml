@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - git_facts:
+        name: infrastructure
+        repo: /Users/tom/git/atplanet/infrastructure
+
+    - git_facts:
+        name: wiki
+        repo: /Users/tom/git/atplanet/wiki
+
+    - debug:
+        var: git_facts_infrastructure
+    - debug:
+        var: git_facts_wiki
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

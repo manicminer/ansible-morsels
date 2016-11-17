@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - stat:
+        path: ~/tmp/ansible/epoch.yml
+      register: some_stat
+    - debug:
+        var: some_stat.stat.ctime|int
+    - debug:
+        var: ansible_date_time.epoch
+    - debug:
+        msg: 'blah'
+        when: some_stat.stat.ctime|int > ansible_date_time.epoch|int

@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+
+  tasks:
+
+    - name: Extract n
+      unarchive:
+        copy: no
+        src: "https://github.com/tj/n/archive/v2.1.0.tar.gz"
+        dest: /tmp/src
+        creates: /tmp/src/n-2.1.0
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

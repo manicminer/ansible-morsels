@@ -1,0 +1,30 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars:
+    mydict:
+      blah: yes
+      cheese: wensleydale
+
+  tasks:
+
+    - debug:
+        msg: "{{ 'foo' in mydict and mydict.foo | bool }}"
+
+    - debug:
+        msg: yooooooooooooog
+      when: "'foo' in mydict and mydict.foo | bool"
+
+    - debug:
+        msg: "{{ 'blah' in mydict and mydict.blah | bool }}"
+
+    - debug:
+        msg: jeeeeeeeeeeeeeeeeeeeek
+      when: "'blah' in mydict and mydict.blah | bool"
+
+    - debug:
+        msg: jeeeeeeeeeeeeeeeeeeeek
+      when: "{{ 'blah' in mydict and mydict.blah | bool }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

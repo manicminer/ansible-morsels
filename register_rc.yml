@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+
+    - command: /bin/false
+      failed_when: False
+      register: checking
+
+    - debug:
+        var: checking

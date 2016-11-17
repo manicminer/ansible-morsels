@@ -1,0 +1,32 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+
+    current_tags:
+      - Name: blah1
+      - env: production
+      - project: bloink
+      - customer: fripp
+      - stage: live
+
+    new_tags:
+      - Name: blah2
+      - env: production
+      - project: bloink
+      - customer: fripp
+      - stage: pre
+
+  tasks:
+
+    - debug:
+        msg: "{{ new_tags }}"
+
+    - debug:
+        msg: "{{ new_tags | symmetric_difference(new_tags | selectattr('stage', 'defined') | list) | union([{'stage': 'live', 'propagate_at_launch': False}]) }}"
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

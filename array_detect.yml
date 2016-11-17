@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  vars:
+    myarr:
+      - item1
+      - item2
+    mystr: blah
+  tasks:
+    - debug:
+        msg: "{{ myarr | length }}"
+    - debug:
+        msg: myarr is an array
+      when: myarr | length
+    - debug:
+        msg: myarr is not an array
+      when: not myarr | length
+    - debug:
+        msg: "{{ mystr | length }}"
+    - debug:
+        msg: mystr is a string
+      when: not mystr | length
+    - debug:
+        msg: mystr is not a string
+      when: mystr | length
+    - debug:
+        msg: myarr is a list
+      when: myarr | is_list
+    - debug:
+        msg: myarr is not a list
+      when: not myarr | is_list
+    - debug:
+        msg: mystr is a string
+      when: not mystr | is_list
+    - debug:
+        msg: mystr is not a string
+      when: mystr | is_list

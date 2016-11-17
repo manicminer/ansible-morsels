@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    blah: no
+  tasks:
+    - debug: msg="blurh"
+      when: "{{ blah|bool }}"

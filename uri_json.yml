@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+    - uri:
+        url: "https://api.ansibledemo.com/api/status"
+        user: ansible
+        password: "%K;#ih&64P[dhOcMFc;MK]]*Vh9ZSQBR"
+      register: safe_to_restart
+    - debug: var=safe_to_restart
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

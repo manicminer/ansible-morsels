@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+    - debug:
+        msg: "{{ ('7' | float) / 2 }}"
+    - debug:
+        msg: "{{ ('7' | float / 2) | round(0, 'ceil') | int }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 expandtab:

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  roles:
+
+    - role: conditional_bool
+      foo: "{{ bar == 'blah' }}"
+
+    - role: conditional_bool
+      foo: "{{ bar != 'blah' }}"

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - debug: msg="task tag1"
+      tags: tag1
+    - debug: msg="task tag2"
+      tags: tag2

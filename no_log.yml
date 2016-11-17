@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - command: echo -e out in the open
+    - command: echo -e blah my secret
+      no_log: True

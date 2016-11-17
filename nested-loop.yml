@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - debug:
+        msg: "{{ item[0] }} + {{ item[1] }}"
+      with_nested:
+        - ['blah', 'boink', 'blink']
+        - ['bob', 'bill', 'brisket']
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - mysql_user:
+        name: "test2"
+        host: localhost
+        password: test2
+        priv: "test2.*:USAGE"
+        state: present

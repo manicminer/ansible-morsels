@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    blah: yes
+
+  roles:
+    - role: test
+      when: "{{ blah | bool }}"
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+
+    hash1:
+      subhash:
+        blah: blurh
+        bleep: bloop
+      mush: mop
+      flip: flop
+
+    hash2:
+      subhash:
+        bish: bosh
+        bleep: blerp
+      fish: flush
+
+  tasks:
+
+    - debug:
+        var: "{{ [1, 2, 3] | shuffle }}"
+    - debug:
+        var: "{{ hash1 | combine(dict2) }}"
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

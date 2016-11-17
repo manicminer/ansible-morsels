@@ -1,0 +1,19 @@
+---
+- name: Sudo set at play level
+  hosts: localhost
+  sudo: yes
+  roles:
+    - whoami
+
+- name: Sudo set at role level
+  hosts: localhost
+  roles:
+    - role: whoami
+      sudo: yes
+
+- name: Sudo not set
+  hosts: localhost
+  roles:
+    - whoami
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - { role: nfs-client, nfsServer: { 'ansible_facts': { 'ansible_eth0' : { 'ipv4' : { 'address': 'hce.com' } } } } }
+# vim: set ts=2 sts=2 sw=2 expandtab:

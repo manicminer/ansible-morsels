@@ -1,0 +1,8 @@
+---
+- debug:
+    msg: "bar blah black var have you any bool?"
+  when: foo
+
+- debug:
+    msg: "no no no no no no"
+  when: not foo

@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+    myvar: "blah"
+  roles:
+    - { role: test, somevar: myvar }

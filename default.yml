@@ -1,0 +1,26 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+
+    conf:
+      name: blish
+
+    var1:
+      results: []
+
+    var2:
+      results:
+        - { name: bob }
+        - { name: jon }
+
+  tasks:
+
+    - debug:
+        msg: "{{ var1.results[0].name | default(conf.name) }}"
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

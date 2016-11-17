@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - command: locale
+    - shell: locale
+    - shell: locale executable=/bin/bash
+
+- hosts: localhost
+  connection: ssh
+  tasks:
+    - command: locale
+    - shell: locale
+    - shell: locale executable=/bin/bash
+
+- hosts: sysadmin2.atpla.net
+  tasks:
+    - command: locale
+    - shell: locale
+    - shell: locale executable=/bin/bash
+
+
+# vim: set ts=2 sts=2 sw=2 et:

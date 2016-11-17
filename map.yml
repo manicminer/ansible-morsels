@@ -1,0 +1,49 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+
+    list_of_dicts:
+      - name: blah
+        foo: bar
+      - name: blurh
+        foo: berr
+
+    list_of_nested_dicts:
+      - name: bif
+        foo: burf
+        bar:
+          shoo: shop
+          goo: flop
+      - name: bef
+        foo: boff
+        bar:
+          shoo: ship
+          goo: flip
+
+    labels:
+      name: blah
+      age: 2
+      cheese: soft
+      env: "{{ env | default(tag_env) | default('bubbles') | title }}"
+
+  tasks:
+
+    - debug:
+        var: list_of_dicts
+
+    - debug:
+        msg: "{{ list_of_dicts | map(attribute='name') | join(', ') }}"
+      tags: map1
+
+    - debug:
+        msg: "{% for label, value in labels | dictsort %}{{ label }}:{{ value }};{% endfor %}"
+      tags: map2
+
+    - debug:
+        msg: "{{ list_of_nested_dicts | map(attribute='bar') | map(attribute='shoo') | join(', ') }}"
+      tags: map3
+
+# vim: set ts=2 sts=2 sw=2 expandtab:

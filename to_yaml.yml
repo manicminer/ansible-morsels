@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    blah:
+      a: blug
+      b: blag
+      c: clog
+      d:
+        - boink
+        - brink
+        - blunk
+        - blank
+  tasks:
+    - copy:
+        dest: /tmp/to_yaml.yml
+        content: "{{ blah | to_yaml }}"
+    - copy:
+        dest: /tmp/to_nice_yaml.yml
+        content: "{{ blah | to_nice_yaml }}"

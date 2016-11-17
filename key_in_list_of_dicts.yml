@@ -1,0 +1,42 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    volumes:
+      - device_name: "/dev/sda1"
+        device_type: "gp2"
+        volume_size: 25
+        fuck: off
+        delete_on_termination: true
+
+      - device_name: "/dev/sdf"
+        device_type: "gp2"
+        volume_size: 100
+        delete_on_termination: true
+        fs_type: ext4
+        mkfs: yes
+        mount_point: /srv/static_map_images
+
+  tasks:
+
+    - debug:
+        msg: "{{ volumes | map(attribute='mount_point') | list }}"
+
+    - set_fact:
+        mounties: "{{ volumes | map(attribute='mount_point') | list }}"
+
+    - debug:
+        msg: "{{ '/srv/static_map_images' in mounties }}"
+
+    - debug:
+        msg: "{{ '/srv/static_map_images' in volumes | map(attribute='mount_point') | list }}"
+
+    - debug:
+        msg: "{{ volumes | selectattr('mount_point', 'equalto', '/srv/static_map_images') | list }}"
+
+
+
+# vim: set ts=2 sts=2 sw=2 et:

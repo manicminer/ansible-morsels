@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    - debug: msg="blah"
+      when: ansible_os_family != "Darwin"
+    - debug: msg="macablah"
+      when: ansible_os_family == "Darwin"
+
+# vim: set ts=2 sts=2 sw=2 et:

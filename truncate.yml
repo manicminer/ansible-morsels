@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - debug:
+        msg: "{{ 'blahblah' | truncate(6, True, '') }}"

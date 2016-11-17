@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    myvar: "true"
+  tasks:
+    - copy:
+        dest: /tmp/to.json
+        content: "{ my_var: {{ myvar | bool | to_json }} }"
+

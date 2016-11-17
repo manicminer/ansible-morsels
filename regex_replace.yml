@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+
+    - debug:
+        msg: "{{ 'blah/boink' | regex_replace('[^a-zA-Z0-9]', '-') }}"
+    - debug:
+        msg: "{{ '/dev/sdf' | regex_replace('\\/dev\\/sd([a-z])', '/dev/xvd\\\\1') }}"
+
+    - debug:
+        msg: "{{ 'fish.flop.org' | regex_replace('^([^.]+)\\..*', '\\1') }}"
+      tags: flop
+
+    - template:
+        src: regex_replace.j2
+        dest: /tmp/regex_replace.txt
+      tags: fileflop
+
+
+# vim: set ts=2 sts=2 sw=2 et:

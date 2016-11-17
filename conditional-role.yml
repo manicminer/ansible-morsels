@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: no
+  vars:
+    run_role: no
+  roles:
+    - role: test
+      when: run_role | bool
+
+# vim: set ts=2 sts=2 sw=2 et:

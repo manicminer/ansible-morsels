@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Get timezone info
+      shell: date
+      register: zoneinfo
+      changed_when: no
+    - name: If timezone is not CST then remove /etc/localtime and call set timezone handler
+      file: path=/tmp/localtime state=absent
+      when: '"CST" in zoneinfo.stdout'
+      notify: set timezone

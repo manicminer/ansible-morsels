@@ -1,0 +1,4 @@
+---
+- debug: var=nfsServer.ansible_facties
+- debug: var=nfsServer['ansible_facties']
+# vim: set ts=2 sts=2 sw=2 expandtab:

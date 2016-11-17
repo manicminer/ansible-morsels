@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+
+  tasks:
+
+    - add_host:
+        name: fakehost
+        ansible_ssh_host: "{{ inventory_hostname }}"
+
+    - set_fact:
+        foo: bar
+
+- hosts: localhost
+
+  tasks:
+
+    - debug:
+        var: "{{ hostvars['fakehost'] }}"
+
+
+# vim: set ft=ansible ts=2 sts=2 sw=2 et:

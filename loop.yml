@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  gather_facts: no
+  connection: local
+
+  vars:
+    roles: ['role1', 'role2', 'role3', 'role4']
+    alpha: [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
+    numbers:  [ 1, 2, 3, 4 ]
+
+  tasks:
+
+    - debug:
+        msg: "{{ item[0] }} - {{ item[1] }}"
+      with_nested:
+        - ['host1', 'host2', 'host3', 'host4']
+        - roles
+
+    - debug:
+        msg: "{{ item.0 }} and {{ item.1 }}"
+      with_together:
+        - "{{ alpha }}"
+        - "{{ numbers }}"
+
+# vim: set ts=2 sts=2 sw=2 et:

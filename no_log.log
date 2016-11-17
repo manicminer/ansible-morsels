@@ -1,0 +1,18 @@
+2015-01-15 22:21:47,596 p=1876 u=tom |   
+2015-01-15 22:21:47,596 p=1876 u=tom |  /usr/local/bin/ansible-playbook no_log.yml -vvv
+2015-01-15 22:21:47,597 p=1876 u=tom |   
+2015-01-15 22:21:47,664 p=1876 u=tom |  PLAY [localhost] ************************************************************** 
+2015-01-15 22:21:47,664 p=1876 u=tom |  TASK: [command echo -e out in the open] *************************************** 
+2015-01-15 22:21:47,677 p=1876 u=tom |  <localhost> REMOTE_MODULE command echo -e out in the open
+2015-01-15 22:21:47,680 p=1876 u=tom |  <localhost> EXEC ['/bin/sh', '-c', 'mkdir -p $HOME/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017 && chmod a+rx $HOME/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017 && echo $HOME/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017']
+2015-01-15 22:21:47,730 p=1876 u=tom |  <localhost> PUT /var/folders/4z/l8ng_d2n7mx61pfvhmf2r41m0000gn/T/tmpf6o4Mg TO /Users/tom/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017/command
+2015-01-15 22:21:47,731 p=1876 u=tom |  <localhost> EXEC ['/bin/sh', '-c', u'LANG=C LC_CTYPE=C /usr/bin/python /Users/tom/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017/command; rm -rf /Users/tom/.ansible/tmp/ansible-tmp-1421353307.68-66582777801017/ >/dev/null 2>&1']
+2015-01-15 22:21:47,859 p=1876 u=tom |  changed: [localhost] => {"changed": true, "cmd": ["echo", "-e", "out", "in", "the", "open"], "delta": "0:00:00.006201", "end": "2015-01-15 22:21:47.848086", "rc": 0, "start": "2015-01-15 22:21:47.841885", "stderr": "", "stdout": "-e out in the open", "warnings": []}
+2015-01-15 22:21:47,860 p=1876 u=tom |  TASK: [command echo -e blah my secret] **************************************** 
+2015-01-15 22:21:47,861 p=1876 u=tom |  <localhost> REMOTE_MODULE command echo -e blah my secret NO_LOG=True
+2015-01-15 22:21:47,863 p=1876 u=tom |  <localhost> EXEC ['/bin/sh', '-c', 'mkdir -p $HOME/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920 && chmod a+rx $HOME/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920 && echo $HOME/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920']
+2015-01-15 22:21:47,872 p=1876 u=tom |  <localhost> PUT /var/folders/4z/l8ng_d2n7mx61pfvhmf2r41m0000gn/T/tmpabg4Bx TO /Users/tom/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920/command
+2015-01-15 22:21:47,873 p=1876 u=tom |  <localhost> EXEC ['/bin/sh', '-c', u'LANG=C LC_CTYPE=C /usr/bin/python /Users/tom/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920/command; rm -rf /Users/tom/.ansible/tmp/ansible-tmp-1421353307.86-275694889373920/ >/dev/null 2>&1']
+2015-01-15 22:21:48,008 p=1876 u=tom |  changed: [localhost] => {"censored": "results hidden due to no_log parameter", "changed": true, "rc": 0}
+2015-01-15 22:21:48,009 p=1876 u=tom |  PLAY RECAP ******************************************************************** 
+2015-01-15 22:21:48,009 p=1876 u=tom |  localhost                  : ok=2    changed=2    unreachable=0    failed=0   

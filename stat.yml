@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+
+    - stat:
+        path: ~/tmp/statblah
+      register: statblah
+
+    - fail:
+        msg: statblah exists
+      when: statblah.stat.exists
+
+# vim: set ts=2 sts=2 sw=2 et:
